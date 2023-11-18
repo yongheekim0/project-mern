@@ -26,6 +26,7 @@ app.listen(port, () => {
 
 //Define other route here, before default
 app.use('/api/users', require('./routes/api/users.cjs'));
+
 //This needs to be the last page
 // All unrecognized requests get served the home page
 // i.e the React app application
