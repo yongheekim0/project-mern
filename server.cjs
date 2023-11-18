@@ -4,7 +4,10 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 
 // Always require and configure near the top
-require('dotenv').config()
+require('dotenv').config();
+
+// Connect to the database
+require('./config/database.cjs');
 
 const app = express();
 
@@ -22,7 +25,7 @@ app.listen(port, () => {
 });
 
 //Define other route here, before default
-
+app.use('/api/users', require('./routes/api/users.cjs'));
 //This needs to be the last page
 // All unrecognized requests get served the home page
 // i.e the React app application
