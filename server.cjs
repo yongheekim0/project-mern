@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 
 // Always require and configure near the top
@@ -15,7 +14,6 @@ app.use(logger('dev'));
 app.use(express.json());
 
 //vite uses the "dist" directory intead of "build"
-// app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(require('./config/checkToken.cjs'));
 
