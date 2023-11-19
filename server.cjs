@@ -17,6 +17,7 @@ app.use(express.json());
 //vite uses the "dist" directory intead of "build"
 // app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(require('./config/checkToken.cjs'));
 
 const port = process.env.PORT || 3001;
 
@@ -26,6 +27,7 @@ app.listen(port, () => {
 
 //Define other route here, before default
 app.use('/api/users', require('./routes/api/users.cjs'));
+
 
 //This needs to be the last page
 // All unrecognized requests get served the home page
